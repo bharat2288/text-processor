@@ -39,3 +39,9 @@ en_core_web_sm/
 
 # Logs
 *.log
+
+# Claude Code
+.claude/
+
+# Windows artifacts
+nul
