@@ -40,6 +40,12 @@ en_core_web_sm/
 # Logs
 *.log
 
+# Specs (synced via session workflow, not git)
+specs/
+
+# Screenshots
+screenshots/
+
 # Claude Code
 .claude/
 
