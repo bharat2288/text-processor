@@ -14,7 +14,9 @@ load_dotenv(r"C:\Users\bhara\dev\.env", override=True)
 # ---------- ENV ----------
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 VECTOR_STORE_ID = os.getenv("TEXT_STORE_ID")
-INTERNAL_KEY = os.getenv("INTERNAL_API_KEY", "demo-key")
+INTERNAL_KEY = os.getenv("INTERNAL_API_KEY")
+if not INTERNAL_KEY:
+    raise RuntimeError("INTERNAL_API_KEY not set in .env")
 
 if not VECTOR_STORE_ID:
     raise RuntimeError("TEXT_STORE_ID not set in .env")
