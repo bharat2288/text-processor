@@ -22,7 +22,12 @@ if not VECTOR_STORE_ID:
     raise RuntimeError("TEXT_STORE_ID not set in .env")
 
 openai.api_key = OPENAI_API_KEY
-app = FastAPI()
+_debug = os.getenv("DEBUG", "").lower() in ("1", "true", "yes")
+app = FastAPI(
+    docs_url="/docs" if _debug else None,
+    redoc_url="/redoc" if _debug else None,
+    openapi_url="/openapi.json" if _debug else None,
+)
 
 # ---------- Pydantic models ----------
 class TextRef(BaseModel):
